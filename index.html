@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>당신의 소설 어시스턴트</title>
+    <script
+      src="https://kit.fontawesome.com/9e9931aed0.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- style.css -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- navigation -->
+    <nav>
+      <a href="./index.html" class="logo"
+        ><i class="fa-solid fa-book-journal-whills"></i> Novel Maker</a
+      >
+      <ul class="menu">
+        <li><a href="#header">Home</a></li>
+        <li><a href="#inputArea">소재/장르</a></li>
+        <li><a href="#characterArea">등장인물</a></li>
+        <li><a href="#happeningArea">에피소드</a></li>
+        <li><a href="#saveArea">설정저장소</a></li>
+      </ul>
+      <ul class="menu">
+        <li><span class="loggedInUserEmail"></span></li>
+        <li><a href="#" class="logoutButton">로그아웃</a></li>
+        <li><a href="./login.html">로그인</a></li>
+        <li><a href="./join.html">회원가입</a></li>
+      </ul>
+    </nav>
+    <!-- //navigation -->
+
+    <header id="header">
+      <h1>
+        <p>당신만의 소설을 제작하기 위한 어시스턴트, 'Novel Maker' 입니다.</p>
+        <p>원하는 소재와 장르로 취향에 맞는 소설을 만들어보세요!</p>
+      </h1>
+    </header>
+
+    <!-- main -->
+    <div class="main">
+      <!-- 웹페이지 설명 -->
+      <div class="description">
+        <p>당신이 원하는 소재와 장르로 소설을 작성할 기반을 마련해드립니다!</p>
+        <p>플롯부터 등장인물, 사건까지 원하는 설정을 얻어보세요.</p>
+        <div class="stepContainer">
+          <div class="step">
+            <div class="stepIcon">1</div>
+            <div class="stepText">원하는 소재와 장르 입력</div>
+          </div>
+          <i class="fa-solid fa-angle-right"></i>
+
+          <div class="step">
+            <div class="stepIcon">2</div>
+            <div class="stepText">플롯 기반 등장인물 생성</div>
+          </div>
+          <i class="fa-solid fa-angle-right"></i>
+
+          <div class="step">
+            <div class="stepIcon">3</div>
+            <div class="stepText">플롯, 등장인물 기반 에피소드</div>
+          </div>
+          <i class="fa-solid fa-angle-right"></i>
+
+          <div class="step">
+            <div class="stepIcon">4</div>
+            <div class="stepText">최종 생성된 플롯, 등장인물 에피소드 확인</div>
+          </div>
+        </div>
+      </div>
+      <!-- //웹페이지 설명 -->
+
+      <div class="mainArea">
+        <!-- 소재 장르 파트 -->
+        <div class="inputArea" id="inputArea">
+          <p><b>Step 1.</b> 원하시는 소설의 소재와 장르를 입력해주세요</p>
+          <label for="inputForm"></label>
+          <form class="inputForm" id="inputForm">
+            소재
+            <input
+              type="text"
+              class="topicInput"
+              placeholder="ex&#41; 모험가 길드의 몰락"
+            />
+            장르
+            <input
+              type="text"
+              class="genreInput"
+              placeholder="ex&#41; 판타지"
+            />
+            <button type="submit" class="plotButton">플롯 생성</button>
+          </form>
+        </div>
+        <!-- //소재 장르 파트 -->
+        <!-- 등장인물 파트 -->
+        <div class="characterArea" id="characterArea">
+          <p><b>Step 2.</b> 이 소설의 등장인물을 생성해주세요</p>
+          <button class="characterButton" disabled>등장인물</button>
+        </div>
+        <!-- //등장인물 파트 -->
+        <!-- 에피소드 파트 -->
+        <div class="happeningArea" id="happeningArea">
+          <p><b>Step 3.</b> 이 소설의 에피소드 하나를 생성해주세요</p>
+          <button class="happeningButton" disabled>에피소드</button>
+        </div>
+        <!-- //에피소드 파트 -->
+      </div>
+      <!-- 설정 저장 파트 -->
+      <div class="saveArea" id="saveArea">
+        <p><b>Step 4.</b> 생성된 모든 설정들을 확인해주세요</p>
+        <div class="inputText"></div>
+        <ul class="plotContainer"></ul>
+        <div class="characterSector">
+          <ul class="characterContainer1"></ul>
+          <ul class="characterContainer2"></ul>
+        </div>
+        <div class="happeningSector">
+          <ul class="happeningContainer"></ul>
+        </div>
+      </div>
+      <!-- 설정 저장 파트 -->
+
+      <!-- 모달 -->
+      <div class="modal">
+        <div class="modalContent">
+          <span class="close">&times;</span>
+          <p class="modalText"></p>
+          <div class="modalButtons">
+            <button class="continueButton">이어가기</button>
+            <button class="restartButton">
+              마음에 들지 않으신가요? 다시하기!
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- //모달 -->
+
+      <button class="topButton"><i class="fa-solid fa-arrow-up"></i></button>
+    </div>
+    <!-- //main -->
+
+    <footer>
+      <p>Copyright 2023. Bloodsteelrain. All rights reserved.</p>
+      <span class="githubContainer">
+        <a
+          href="https://github.com/bloodsteelrain/Ormi_Project1"
+          target="_blank"
+          class="githubIcon"
+          ><i class="fab fa-github"></i
+        ></a>
+      </span>
+    </footer>
+
+    <script src="./js/status.js"></script>
+    <script src="./js/loading.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/eraser.js"></script>
+    <script src="./js/API.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/scroll.js"></script>
+  </body>
+</html>
