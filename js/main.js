@@ -1,12 +1,11 @@
 // 변수 정의
-const $plotContainer = document.querySelector(".plotContainer");
 const $topicInput = document.querySelector(".topicInput");
 const $genreInput = document.querySelector(".genreInput");
-const $plotButton = document.querySelector(".plotButton");
 const $inputText = document.querySelector(".inputText");
+const $plotButton = document.querySelector(".plotButton");
 const $characterButton = document.querySelector(".characterButton");
 const $happeningButton = document.querySelector(".happeningButton");
-const $characterSector = document.querySelector(".characterSector");
+const $plotContainer = document.querySelector(".plotContainer");
 const $characterContainer1 = document.querySelector(".characterContainer1");
 const $characterContainer2 = document.querySelector(".characterContainer2");
 const $happeningContainer = document.querySelector(".happeningContainer");
@@ -16,15 +15,6 @@ const $modalButtons = document.querySelector(".modalButtons");
 const $restartButton = document.querySelector(".restartButton");
 const $continueButton = document.querySelector(".continueButton");
 const $topButton = document.querySelector(".topButton");
-
-// 사전 저장된 정보 (assistant의 역할)
-// const data = [
-//   {
-//     role: "system",
-//     content:
-//       "assistant는 다양한 장르에 대한 지식과 이해를 기반으로 보조 작가 역할을 수행하는 소설가이다.",
-//   },
-// ];
 
 // 입력 버튼 클릭 이벤트
 $plotButton.addEventListener("click", (e) => {
@@ -53,6 +43,9 @@ $plotButton.addEventListener("click", (e) => {
   chatGptAPI(requestData, (answer) => {
     $characterButton.removeAttribute("disabled");
     // 화면에 답변 표시
+    while ($plotContainer.firstChild) {
+      $plotContainer.removeChild($plotContainer.firstChild);
+    }
     const plotAnswer = document.createElement("li");
     plotAnswer.innerText = answer;
     $plotContainer.appendChild(plotAnswer);
@@ -74,10 +67,16 @@ $characterButton.addEventListener("click", (e) => {
   chatGptAPI(requestData, (answer) => {
     $happeningButton.removeAttribute("disabled");
     // 화면에 답변 표시
+    while ($characterContainer1.firstChild) {
+      $characterContainer1.removeChild($characterContainer1.firstChild);
+    }
     const characterAnswer1 = document.createElement("li");
     characterAnswer1.innerText = answer.split("\n\n")[0];
     $characterContainer1.appendChild(characterAnswer1);
 
+    while ($characterContainer2.firstChild) {
+      $characterContainer2.removeChild($characterContainer2.firstChild);
+    }
     const characterAnswer2 = document.createElement("li");
     characterAnswer2.innerText = answer.split("\n\n")[1];
     $characterContainer2.appendChild(characterAnswer2);
@@ -98,6 +97,9 @@ $happeningButton.addEventListener("click", (e) => {
 
   chatGptAPI(requestData, (answer) => {
     // 화면에 답변 표시
+    while ($happeningContainer.firstChild) {
+      $happeningContainer.removeChild($happeningContainer.firstChild);
+    }
     const happeningAnswer = document.createElement("li");
     happeningAnswer.innerText = answer;
     $happeningContainer.appendChild(happeningAnswer);
@@ -114,7 +116,7 @@ $continueButton.addEventListener("click", function () {
 
 // 다시하기 버튼 클릭 이벤트
 $restartButton.addEventListener("click", function () {
-  clearAnswers($plotContainer, $modalText);
+  clearAnswers();
   closeModal();
   $inputText.innerText = "";
 });

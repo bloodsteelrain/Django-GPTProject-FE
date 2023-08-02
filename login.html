@@ -10,16 +10,19 @@
   </head>
 
   <body>
-    <!-- header -->
-    <div class="header">
-      <h1><a href="./index.html">HTML/CSS 실습</a></h1>
-      <div class="header-click">
-        <a href="#">채팅</a>
-        <a href="./login.html">로그인</a>
-        <a href="./join.html">회원가입</a>
-      </div>
-    </div>
-    <!-- // header -->
+    <!-- navigation -->
+    <nav>
+      <a href="./index.html" class="logo"
+        ><i class="fa-solid fa-book-journal-whills"></i> Novel Maker</a
+      >
+      <ul class="menu">
+        <li><a href="./profile.html" class="profileButton">프로필</a></li>
+        <li><a href="#" class="logoutButton">로그아웃</a></li>
+        <li><a href="./login.html">로그인</a></li>
+        <li><a href="./join.html">회원가입</a></li>
+      </ul>
+    </nav>
+    <!-- //navigation -->
 
     <div class="main">
       <div class="container">
@@ -35,17 +38,23 @@
             <label class="label-width" for="user-pw">비밀번호</label>
             <input type="password" id="user-pw" name="userPw" required />
           </div>
-          <div>
-            <input type="checkbox" id="save-id" name="saveId" />
-            <label for="save-id">아이디 저장</label>
-          </div>
           <button class="submit-button" type="submit">로그인</button>
         </form>
       </div>
     </div>
 
     <!-- footer -->
-    <p class="footer">Copyright 2023. Chilli All rights reserved.</p>
+    <footer>
+      <span class="githubContainer">
+        <a
+          href="https://github.com/bloodsteelrain/Ormi_Project1"
+          target="_blank"
+          class="githubIcon"
+          ><i class="fab fa-github"></i
+        ></a>
+      </span>
+      <p>Copyright 2023. Bloodsteelrain. All rights reserved.</p>
+    </footer>
     <!-- //footer -->
 
     <script src="./js/login.js"></script>

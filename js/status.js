@@ -6,13 +6,13 @@ function updateNavigationLinks() {
   const $loginLink = document.querySelector('a[href="./login.html"]');
   const $joinLink = document.querySelector('a[href="./join.html"]');
   const $logoutButton = document.querySelector(".logoutButton");
-  const $loggedInUserEmail = document.querySelector(".loggedInUserEmail");
+  const $profileButton = document.querySelector(".profileButton");
 
   console.log(accessToken);
 
   if (accessToken && accessTokenExp && new Date() < new Date(accessTokenExp)) {
-    // 로그인한 상태면, 로그아웃 버튼과 로그인된 이메일 표시
-    $loggedInUserEmail.textContent = "Welcome, logged in email";
+    // 로그인한 상태면, 로그아웃, 프로필 버튼 표시
+    $profileButton.style.display = "inline";
     $logoutButton.style.display = "inline";
     $logoutButton.addEventListener("click", function (e) {
       e.preventDefault();
@@ -27,12 +27,16 @@ function updateNavigationLinks() {
     $joinLink.style.display = "none";
   } else {
     // 로그인하지 않은 상태면, 로그아웃 버튼과 로그인된 이메일 숨기기
-    $loggedInUserEmail.style.display = "none";
+    $profileButton.style.display = "none";
     $logoutButton.style.display = "none";
 
     // 로그인, 회원가입 버튼 표시
     $loginLink.style.display = "inline";
     $joinLink.style.display = "inline";
+
+    //로컬스토리지에서 access token 제거
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("accessTokenExp");
   }
 }
 

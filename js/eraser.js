@@ -9,7 +9,7 @@ function clearAnswers() {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      Authorization: "Bearer ${accessToken}",
+      Authorization: `Bearer ${accessToken}`,
     },
   })
     .then((response) => response.json())
@@ -21,8 +21,6 @@ function clearAnswers() {
       alert(data.message);
     });
 
-  // 답변 표시 지우기
-  container1.innerHTML = "";
-  container2.innerHTML = "";
+  $modalText.innerHTML = "";
   $modalButtons.style.display = "none";
 }
