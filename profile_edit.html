@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile</title>
+    <!-- Add your CSS stylesheets here -->
+  </head>
+  <body>
+    <h1>Edit Profile</h1>
+    <form id="profile-edit-form">
+      <label for="nickname">Nickname:</label>
+      <input type="text" id="nickname" name="nickname" required />
+      <br />
+      <label for="introduce">Introduce:</label>
+      <textarea id="introduce" name="introduce" required></textarea>
+      <br />
+      <label for="image">Profile Image:</label>
+      <input type="file" id="image" name="image" />
+      <img src="" alt="Profile Image" id="profile-image" />
+      <button type="submit">Save</button>
+    </form>
+
+    <script src="./js/profile_edit.js"></script>
+  </body>
+</html>
