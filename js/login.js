@@ -32,10 +32,8 @@ function login(email, password) {
       return response.json();
     })
     .then((data) => {
-      console.log(data);
       // 로그인 응답에서 access token 추출
       accessToken = data.access;
-      console.log("Login successful. Access token:", accessToken);
       // 로컬스토리지에 access token과 만료시간 저장
       const expirationDate = new Date(new Date().getTime() + 30 * 60 * 1000); // 지금으로부터 30분
       localStorage.setItem("accessToken", accessToken);

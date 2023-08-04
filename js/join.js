@@ -29,13 +29,12 @@ function signup(email, password) {
       return response.json();
     })
     .then((data) => {
-      console.log("Signup successful. User data:", data);
       alert("회원가입 되셨습니다. 이제 로그인이 가능합니다");
       // 회원가입 성공시 로그인 페이지로 이동
       window.location.href = "login.html";
     })
     .catch((error) => {
       console.error("Signup Error:", error);
-      alert("Signup failed. Please check your information and try again.");
+      alert("회원가입에 실패였습니다. 양식에 맞게 입력해주세요.");
     });
 }
