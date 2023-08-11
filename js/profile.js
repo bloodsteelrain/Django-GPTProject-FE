@@ -18,7 +18,9 @@ function fetchProfile() {
       const createdAt = document.getElementById("created-at");
       const updatedAt = document.getElementById("updated-at");
 
-      profileImage.src = data.image ? data.image : "/path/to/default/image";
+      profileImage.src = data.image
+        ? "http://127.0.0.1:8000" + data.image
+        : "./img/default_user.jpg";
       nickname.textContent = data.nickname;
       introduce.textContent = data.introduce;
       createdAt.textContent = data.created_at;
