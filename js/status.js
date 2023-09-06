@@ -8,8 +8,6 @@ function updateNavigationLinks() {
   const $logoutButton = document.querySelector(".logoutButton");
   const $profileButton = document.querySelector(".profileButton");
 
-  console.log(accessToken);
-
   if (accessToken && accessTokenExp && new Date() < new Date(accessTokenExp)) {
     // 로그인한 상태면, 로그아웃, 프로필 버튼 표시
     $profileButton.style.display = "inline";
